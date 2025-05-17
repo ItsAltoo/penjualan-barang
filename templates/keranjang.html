@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Keranjang{% endblock %}
+
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Isi Keranjang</h1>
+
+    {% if keranjang %}
+        <table class="w-full bg-white border rounded shadow">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="py-2 px-4">Nama</th>
+                    <th class="py-2 px-4">Harga</th>
+                    <th class="py-2 px-4">Kategori</th>
+                    <th class="py-2 px-4">Qty</th>
+                    <th class="py-2 px-4">Tanggal</th>
+                    <th class="py-2 px-4">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in keranjang %}
+                <tr class="border-t">
+                    <td class="py-2 px-4">{{ item.name }}</td>
+                    <td class="py-2 px-4">{{ item.price }}</td>
+                    <td class="py-2 px-4">{{ item.category }}</td>
+                    <td class="py-2 px-4">{{ item.quantity }}</td>
+                    <td class="py-2 px-4">{{ item.date }}</td>
+                    <td class="py-2 px-4 ">
+                        <a href="{% url 'edit_keranjang' forloop.counter0 %}" class="text-yellow-400 hover:underline">Edit</a>
+                        <a href="{% url 'hapus_item_keranjang' forloop.counter0 %}" class="text-red-600 hover:underline">Hapus</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form method="post" action="{% url 'simpan_transaksi' %}" class="mt-4">
+            {% csrf_token %}
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Simpan Transaksi</button>
+        </form>
+
+    {% else %}
+        <p class="text-gray-600">Keranjang masih kosong.</p>
+    {% endif %}
+    <a href="{% url 'index' %}" class="inline-block mt-4 text-blue-600 hover:underline">← Kembali</a>
+{% endblock %}
