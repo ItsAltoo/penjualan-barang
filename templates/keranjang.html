@@ -25,7 +25,7 @@
                     <td class="py-2 px-4">{{ item.category }}</td>
                     <td class="py-2 px-4">{{ item.quantity }}</td>
                     <td class="py-2 px-4">{{ item.date }}</td>
-                    <td class="py-2 px-4 ">
+                    <td class="py-2 px-4">
                         <a href="{% url 'edit_keranjang' forloop.counter0 %}" class="text-yellow-400 hover:underline">Edit</a>
                         <a href="{% url 'hapus_item_keranjang' forloop.counter0 %}" class="text-red-600 hover:underline">Hapus</a>
                     </td>

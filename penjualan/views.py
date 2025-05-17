@@ -3,17 +3,6 @@ from .models import Barang, Transaksi, DetailBarang
 from django.contrib import messages
 from datetime import datetime
 
-# Inisialisasi session keranjang
-def get_keranjang(request):
-    return request.session.get('keranjang', [])
-
-
-def keranjang(request):
-    keranjang = get_keranjang(request)
-    return render(request, 'keranjang.html', {
-        "keranjang": keranjang
-    })
-
 
 def index(request):
     if request.method == 'POST':
@@ -41,6 +30,19 @@ def index(request):
 
     barang_list = Barang.objects.all()
     return render(request, 'index.html', {'barang_list': barang_list})
+
+
+# Inisialisasi session keranjang
+def get_keranjang(request):
+    return request.session.get('keranjang', [])
+
+
+def keranjang(request):
+    keranjang = get_keranjang(request)
+    return render(request, 'keranjang.html', {
+        "keranjang": keranjang
+    })
+
 
 # Hapus item dari keranjang (berdasarkan index list)
 def hapus_item_keranjang(request, index):
