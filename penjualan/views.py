@@ -16,6 +16,7 @@ def index(request):
             messages.error(request, 'Barang tidak ditemukan di daftar barang!')
             return redirect('index')
 
+        
         keranjang = request.session.get('keranjang', [])
         keranjang.append({
             'name': barang.name,
@@ -94,7 +95,6 @@ def simpan_transaksi(request):
             transaksi=transaksi,
             barang=barang,
             quantity=item['quantity'],
-            transaksi_date=item['date']
         )
 
     # Kosongkan keranjang setelah transaksi

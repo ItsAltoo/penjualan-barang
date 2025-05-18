@@ -5,7 +5,7 @@ class Barang(models.Model):
     name = models.CharField(max_length=100)
     price = models.PositiveIntegerField()
     category = models.CharField(max_length=50)
-    
+
 
     def harga(self):
         return f"{self.price:,}"
@@ -31,6 +31,5 @@ class DetailBarang(models.Model):
         total = self.barang.price * self.quantity
         return f"{total:,}"
 
-    
     def __str__(self):
         return f"{self.barang.name} - {self.quantity} pcs total : {self.total_harga()}"
