@@ -94,7 +94,7 @@ def simpan_transaksi(request):
             transaksi=transaksi,
             barang=barang,
             quantity=item['quantity'],
-            date_transaksi=item['date']
+            transaksi_date=item['date']
         )
 
     # Kosongkan keranjang setelah transaksi

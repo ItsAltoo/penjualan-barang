@@ -14,6 +14,7 @@
                 <th class="py-2 px-4">Harga</th>
                 <th class="py-2 px-4">Quantity</th>
                 <th class="py-2 px-4">Tanggal</th>
+                <th class="py-2 px-4">Total Harga</th>
             </tr>
         </thead>
         <tbody>
@@ -21,9 +22,10 @@
             <tr class="border-t">
                 <td class="py-2 px-4">{{ d.barang.name }}</td>
                 <td class="py-2 px-4">{{ d.barang.category }}</td>
-                <td class="py-2 px-4">{{ d.barang.price }}</td>
+                <td class="py-2 px-4">{{ d.barang.harga }}</td>
                 <td class="py-2 px-4">{{ d.quantity }}</td>
-                <td class="py-2 px-4">{{ d.date_transaksi }}</td>
+                <td class="py-2 px-4">{{ d.transaksi.date }}</td>
+                <td class="py-2 px-4">{{ d.total_harga }}</td>
             </tr>
             {% endfor %}
         </tbody>

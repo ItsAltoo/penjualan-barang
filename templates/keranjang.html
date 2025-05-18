@@ -4,7 +4,6 @@
 
 {% block content %}
     <h1 class="text-2xl font-bold mb-4">Isi Keranjang</h1>
-
     {% if keranjang %}
         <table class="w-full bg-white border rounded shadow">
             <thead class="bg-gray-200">
@@ -21,10 +20,11 @@
                 {% for item in keranjang %}
                 <tr class="border-t">
                     <td class="py-2 px-4">{{ item.name }}</td>
-                    <td class="py-2 px-4">{{ item.price }}</td>
+                    <td class="py-2 px-4">{{ item.harga }}</td>
                     <td class="py-2 px-4">{{ item.category }}</td>
                     <td class="py-2 px-4">{{ item.quantity }}</td>
                     <td class="py-2 px-4">{{ item.date }}</td>
+
                     <td class="py-2 px-4">
                         <a href="{% url 'edit_keranjang' forloop.counter0 %}" class="text-green-600 hover:underline border-r pr-1">Edit</a>
                         <a href="{% url 'hapus_item_keranjang' forloop.counter0 %}" class="text-red-600 hover:underline">Hapus</a>
