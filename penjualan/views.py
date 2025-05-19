@@ -16,8 +16,8 @@ def index(request):
             messages.error(request, 'Barang tidak ditemukan di daftar barang!')
             return redirect('index')
 
-        
         keranjang = request.session.get('keranjang', [])
+
         keranjang.append({
             'name': barang.name,
             'price': barang.price,
