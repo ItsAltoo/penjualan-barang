@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block title %}Form & Daftar Barang{% endblock %}
 
 {% block content %}
@@ -40,7 +41,7 @@
             {% for barang in barang_list %}
             <tr class="border-t">
                 <td class="py-2 px-4">{{ barang.name }}</td>
-                <td class="py-2 px-4">{{ barang.harga }}</td>
+                <td class="py-2 px-4">{{ barang.price | intcomma }}</td>
                 <td class="py-2 px-4">{{ barang.category }}</td>
             </tr>
             {% endfor %}
