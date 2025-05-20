@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Keranjang{% endblock %}
+{% load humanize %}
 
 
 {% block content %}
@@ -20,7 +21,7 @@
                 {% for item in keranjang %}
                 <tr class="border-t">
                     <td class="py-2 px-4">{{ item.name }}</td>
-                    <td class="py-2 px-4">{{ item.price }}</td>
+                    <td class="py-2 px-4">{{ item.price | intcomma }}</td>
                     <td class="py-2 px-4">{{ item.category }}</td>
                     <td class="py-2 px-4">{{ item.quantity }}</td>
                     <td class="py-2 px-4">{{ item.date }}</td>

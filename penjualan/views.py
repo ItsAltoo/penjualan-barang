@@ -20,7 +20,7 @@ def index(request):
 
         keranjang.append({
             'name': barang.name,
-            'price': barang.price,
+            'price': barang.harga,
             'category': barang.category,
             'quantity': quantity,
             'date': tanggal
@@ -60,7 +60,8 @@ def hapus_item_keranjang(request, index):
 
 def edit_keranjang(request, index):
     keranjang = request.session.get('keranjang', [])
-
+    
+    
     if index < 0 or index >= len(keranjang):
         messages.error(request, 'Item tidak ditemukan!')
         return redirect('keranjang')
@@ -94,7 +95,7 @@ def simpan_transaksi(request):
         DetailBarang.objects.create(
             transaksi=transaksi,
             barang=barang,
-            quantity=item['quantity'],
+            quantity=item['quantity']
         )
 
     # Kosongkan keranjang setelah transaksi

@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
+
 {% block title %}Transaksi{% endblock %}
 {% block content %}
 <h1 class="text-2xl font-bold mb-4">Daftar Transaksi</h1>
@@ -22,10 +25,10 @@
             <tr class="border-t">
                 <td class="py-2 px-4">{{ d.barang.name }}</td>
                 <td class="py-2 px-4">{{ d.barang.category }}</td>
-                <td class="py-2 px-4">{{ d.barang.harga }}</td>
+                <td class="py-2 px-4">{{ d.barang.price | intcomma }}</td>
                 <td class="py-2 px-4">{{ d.quantity }}</td>
                 <td class="py-2 px-4">{{ d.transaksi.date }}</td>
-                <td class="py-2 px-4">{{ d.total_harga }}</td>
+                <td class="py-2 px-4">{{ d.total_harga | intcomma }}</td>
             </tr>
             {% endfor %}
         </tbody>

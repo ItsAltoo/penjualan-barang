@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block edit_page %}
 <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-lg mx-auto mt-10">
@@ -21,7 +22,7 @@
 
         <div>
             <label class="block mb-1 font-medium text-gray-700">Harga:</label>
-            <input type="text" value="Rp {{ item.price|floatformat:0 }}" disabled
+            <input type="text" value="Rp {{ item.price|intcomma }}" disabled
                 class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
         </div>
 
