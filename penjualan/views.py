@@ -20,7 +20,7 @@ def index(request):
 
         keranjang.append({
             'name': barang.name,
-            'price': barang.harga,
+            'price': barang.price,
             'category': barang.category,
             'quantity': quantity,
             'date': tanggal
